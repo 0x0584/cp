@@ -1,13 +1,13 @@
 #              File:    azuz-n-treasure.py
 #            Author:    Anas
-#       Description:    the idea is that we have to collect a list of all
-#                       possible paths, keeping tack of only new corridros.
-#                       and keep going deeper using recursion until we
-#                       reach a corridor with no next, we return the paths.
-#                       finally, we'll have to check for traps.
 #
-#         Created: <2019-07-08 Mon 23:36:21>
-#    Updated: 2019/07/10 08:00:39 by archid-          ###   ########.fr        #
+#    Created: <2019-07-08 Mon 23:36:21>
+#    Updated: <2019-07-10 Wed 08:42:05>
+#
+# Thoughts: the idea is that we have to collect a list of all possible
+# paths, keeping tack of only new corridros. and keep going deeper using
+# recursion until we reach a corridor with no next, we return the paths.
+# finally, we'll have to check for traps.
 #
 # B. #247588
 
@@ -66,3 +66,14 @@ def treasure(solu):
 
 
 # run_tests("azuz.in")
+
+n_tests = int(input())
+input_arr = []
+for i in range(n_tests):
+    corris = []
+    n_corris = int(input())
+    for j in range(n_corris - 1):
+        corris.append(map(int, raw_input().split()))
+    input_arr.append(corris)
+for e in input_arr:
+    treasure(solve(e))
