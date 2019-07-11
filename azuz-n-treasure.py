@@ -2,7 +2,7 @@
 #            Author:    Anas
 #
 #    Created: <2019-07-08 Mon 23:36:21>
-#    Updated: <2019-07-10 Wed 17:33:41>
+#    Updated: <2019-07-11 Thu 19:37:52>
 #
 # Thoughts: the idea is that we have to collect a list of all possible
 # paths, keeping tack of only new corridros. and keep going deeper using
@@ -48,32 +48,32 @@ def treasure(solu):
     else:
         print "it was a trap!"
 
-# def run_tests(fname):
-#     index = 0
-#     with open(fname) as f:
-#         content = f.readlines()
-#     content = [x.strip() for x in content]
+def run_tests(fname):
+    index = 0
+    with open(fname) as f:
+        content = f.readlines()
+    content = [x.strip() for x in content]
 
-#     for i in range(int(content[0])):
-#         corris = []
-#         index += 1
-#         n_corris = int(content[index]) - 1
-#         index += 1
-#         for j in range(n_corris):
-#             corris.append(map(int, content[j + index].split()))
-#         index += j
-#         treasure(solve(corris))
+    for i in range(int(content[0])):
+        corris = []
+        index += 1
+        n_corris = int(content[index]) - 1
+        index += 1
+        for j in range(n_corris):
+            corris.append(map(int, content[j + index].split()))
+        index += j
+        treasure(solve(corris))
 
 
-# run_tests("azuz.in")
+run_tests("azuz.in")
 
-n_tests = int(input())
-input_arr = []
-for i in range(n_tests):
-    corris = []
-    n_corris = int(input())
-    for j in range(n_corris - 1):
-        corris.append(map(int, raw_input().split()))
-    input_arr.append(corris)
-for e in input_arr:
-    treasure(solve(e))
+# n_tests = int(input())
+# input_arr = []
+# for i in range(n_tests):
+#     corris = []
+#     n_corris = int(input())
+#     for j in range(n_corris - 1):
+#         corris.append(map(int, raw_input().split()))
+#     input_arr.append(corris)
+# for e in input_arr:
+#     treasure(solve(e))

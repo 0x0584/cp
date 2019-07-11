@@ -2,7 +2,7 @@
 #            Author:    Anas
 #
 #    Created: <2019-07-10 Wed 17:21:32>
-#    Updated: <2019-07-10 Wed 20:16:56>
+#    Updated: 2019/07/11 19:31:56 by archid-          ###   ########.fr        #
 #
 # Thoughts: sort the list, from big to small. each time take one of
 # `fresh' (non prviously picked) element, max, min, max, ... see if
@@ -10,28 +10,8 @@
 #
 # J. #247588
 
-def split_into_half(lst, size):
-    # create array of true, false for each emelemnt in the list
-    has_picked = [False for e in lst]
-    from_left = True
-    halfs = [[], []]
+def split_into_half(lst, size, halfs = [[], []]):
 
-    lst.sort(reverse=True)      # biggest on left
-    if lst[0] > size:
-        return []
-
-    for i in range(len(lst)):
-        if from_left:
-            index = i
-        else:
-            index = len(lst) - i
-        for half in halfs:
-            if has_picked[index]:
-                break
-            elif not has_picked[index] and lst[index] + sum(half) <= size:
-                half.append(lst[index])
-                has_picked[index] = True
-                from_left = from_left ^ True
     return halfs
 
 def choco_test(lst, halfs):
