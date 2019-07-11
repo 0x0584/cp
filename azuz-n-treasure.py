@@ -2,7 +2,7 @@
 #            Author:    Anas
 #
 #    Created: <2019-07-08 Mon 23:36:21>
-#    Updated: <2019-07-11 Thu 19:37:52>
+#    Updated: <2019-07-11 Thu 21:42:21>
 #
 # Thoughts: the idea is that we have to collect a list of all possible
 # paths, keeping tack of only new corridros. and keep going deeper using
@@ -22,7 +22,6 @@ def solve(corris, paths = [[[0, 1]]]):
     new_paths = []
     has_new_next = False
 
-    l = list(paths)
     for path in paths:
         for e in find_next(corris, path[-1]):
             if e not in path:
@@ -64,8 +63,7 @@ def run_tests(fname):
         index += j
         treasure(solve(corris))
 
-
-run_tests("azuz.in")
+run_tests("input/azuz.in")
 
 # n_tests = int(input())
 # input_arr = []
