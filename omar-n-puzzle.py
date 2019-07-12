@@ -2,7 +2,7 @@
 #            Author:    Anas
 #
 #    Created: <2019-07-11 Wed 20:08:07>
-#    Updated: <2019-07-12 Fri 09:07:46>
+#    Updated: <2019-07-12 Fri 11:39:02>
 #
 # Thoughts: loop over the points, each time, push a point into a range r
 # if the range still has space, and the diff is true. mark the point as
@@ -15,10 +15,10 @@ def diff(lst, k):
         return False
     elif len(lst) == 1:
         return True
-    for i in range(len(lst) - 1):
-        if lst[i + 1] - lst[i] > k:
-            return False
-        i += 1
+    for e1 in lst:
+        for e2 in lst:
+            if e2 - e1 > k:
+                return False
     return True
 
 def range_of_points(points, c, k):
@@ -27,9 +27,12 @@ def range_of_points(points, c, k):
     flag = True
 
     ranges[0].append(points[0])
-    points.remove(points[0])
+    picked[0] = True
     while flag:
         flag = False
+        points[:] = [points[i] for i in range(len(points))
+                     if not picked[i]]
+        picked[:] = [e for e in picked if not e]
         for i in range(len(points)):
             if not picked[i]:
                 flag = True
